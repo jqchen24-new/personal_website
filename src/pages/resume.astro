@@ -1,0 +1,298 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const entry = await getEntry('resume', 'resume');
+if (!entry) {
+	throw new Error('Add src/data/resume.yaml');
+}
+
+const r = entry.data;
+---
+
+<BaseLayout title="Resume" description={`Resume — ${r.name}`} navCurrent="resume">
+	<div class="resume">
+		<header class="resume-header">
+			<h1 class="resume-name">{r.name}</h1>
+			<p class="resume-title">{r.title}</p>
+			<div class="resume-contact">
+				{
+					r.contact.email && (
+						<a href={`mailto:${r.contact.email}`}>{r.contact.email}</a>
+					)
+				}
+				{
+					r.contact.location && (
+						<>
+							{r.contact.email && <span class="sep">·</span>}
+							<span>{r.contact.location}</span>
+						</>
+					)
+				}
+			</div>
+			{
+				r.contact.links && r.contact.links.length > 0 && (
+					<p class="resume-links">
+						{r.contact.links.map((link, i) => (
+							<>
+								{i > 0 && <span class="resume-link-sep" aria-hidden="true"> · </span>}
+								<a href={link.url} rel="noopener noreferrer">
+									{link.label}
+								</a>
+							</>
+						))}
+					</p>
+				)
+			}
+			<div class="resume-actions">
+				<a class="button" href="/resume.pdf" download>Download PDF</a>
+				<button type="button" class="button button-secondary print-button">Print / Save as PDF</button>
+			</div>
+		</header>
+
+		{
+			r.summary && (
+				<section class="resume-section">
+					<h2>Summary</h2>
+					<p class="resume-summary">{r.summary}</p>
+				</section>
+			)
+		}
+
+		<section class="resume-section">
+			<h2>Experience</h2>
+			{
+				r.experience.map((job) => (
+					<div class="resume-job">
+						<div class="resume-job-head">
+							<div>
+								<strong>{job.role}</strong>, {job.company}
+								{job.location && ` · ${job.location}`}
+							</div>
+							<div class="resume-dates">
+								{job.start} — {job.end}
+							</div>
+						</div>
+						<ul>
+							{job.highlights.map((h) => (
+								<li>{h}</li>
+							))}
+						</ul>
+					</div>
+				))
+			}
+		</section>
+
+		{
+			r.education && r.education.length > 0 && (
+				<section class="resume-section">
+					<h2>Education</h2>
+					<ul class="resume-edu">
+						{r.education.map((edu) => (
+							<li>
+								<strong>{edu.school}</strong> — {edu.degree}
+								{edu.year && ` (${edu.year})`}
+								{edu.details && (
+									<>
+										<br />
+										<span class="edu-details">{edu.details}</span>
+									</>
+								)}
+							</li>
+						))}
+					</ul>
+				</section>
+			)
+		}
+
+		{
+			r.skills && r.skills.length > 0 && (
+				<section class="resume-section">
+					<h2>Skills</h2>
+					<ul class="resume-skills">
+						{r.skills.map((group) => (
+							<li>
+								<strong>{group.category}:</strong>{' '}
+								{group.items.join(', ')}
+							</li>
+						))}
+					</ul>
+				</section>
+			)
+		}
+	</div>
+</BaseLayout>
+
+<script is:inline>
+	document.querySelector('.print-button')?.addEventListener('click', () => window.print());
+</script>
+
+<style>
+	.resume-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.25rem;
+	}
+
+	.print-button {
+		font: inherit;
+	}
+
+	.resume-header {
+		margin-bottom: 1.5rem;
+		padding-bottom: 1rem;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.resume-name {
+		font-size: 1.75rem;
+		margin: 0 0 0.25rem;
+		letter-spacing: -0.03em;
+	}
+
+	.resume-title {
+		margin: 0 0 0.75rem;
+		color: var(--color-muted);
+		font-size: 1.0625rem;
+	}
+
+	.resume-contact {
+		font-size: 0.9375rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.sep {
+		margin: 0 0.35rem;
+		color: var(--color-muted);
+	}
+
+	.resume-link-sep {
+		color: var(--color-muted);
+	}
+
+	.resume-links {
+		margin: 0.25rem 0 0;
+		padding: 0;
+		font-size: 0.9375rem;
+		line-height: 1.5;
+	}
+
+	.resume-section {
+		margin-top: 1.5rem;
+	}
+
+	.resume-section h2 {
+		font-size: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--color-muted);
+		margin: 0 0 0.75rem;
+		border-bottom: 1px solid var(--color-border);
+		padding-bottom: 0.35rem;
+	}
+
+	.resume-summary {
+		margin: 0;
+	}
+
+	.resume-job {
+		margin-bottom: 1.25rem;
+	}
+
+	.resume-job:last-child {
+		margin-bottom: 0;
+	}
+
+	.resume-job-head {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 0.25rem 1rem;
+		font-size: 0.9375rem;
+		margin-bottom: 0.35rem;
+	}
+
+	.resume-dates {
+		color: var(--color-muted);
+		font-size: 0.875rem;
+		white-space: nowrap;
+	}
+
+	.resume-job ul {
+		margin: 0;
+		padding-left: 1.25rem;
+		font-size: 0.9375rem;
+	}
+
+	.resume-job li {
+		margin-bottom: 0.25rem;
+	}
+
+	.resume-edu,
+	.resume-skills {
+		margin: 0;
+		padding-left: 1.25rem;
+		font-size: 0.9375rem;
+	}
+
+	.resume-skills {
+		line-height: 1.6;
+	}
+
+	.resume-skills li {
+		margin-bottom: 0.75rem;
+		line-height: 1.6;
+	}
+
+	.resume-skills li:last-child {
+		margin-bottom: 0;
+	}
+
+	.edu-details {
+		color: var(--color-muted);
+	}
+
+	@media print {
+		@page {
+			margin: 1.2cm;
+		}
+
+		body {
+			background: #fff;
+			font-size: 10.5pt;
+			line-height: 1.45;
+		}
+
+		.site-header,
+		.site-footer,
+		.resume-actions {
+			display: none !important;
+		}
+
+		.layout-main {
+			max-width: none;
+			padding: 0;
+		}
+
+		a {
+			color: var(--color-text);
+			text-decoration: none;
+		}
+
+		.resume-links a::after {
+			content: ' (' attr(href) ')';
+			font-size: 0.85em;
+			color: var(--color-muted);
+		}
+
+		.resume-section {
+			break-inside: avoid;
+		}
+
+		.resume-skills li {
+			line-height: 1.55;
+			margin-bottom: 0.5rem;
+		}
+	}
+</style>

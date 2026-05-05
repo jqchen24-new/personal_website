@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site } from '../site';
+
+const recentPosts = (await getCollection('articles'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+---
+
+<BaseLayout title={site.title} description={site.tagline} navCurrent="home">
+	<h1 class="lede">Hi, I&rsquo;m Jack &mdash; a data science leader in financial services, currently figuring out what&rsquo;s next.</h1>
+
+	<section class="home-section">
+		<p>
+			For most of the last decade I&rsquo;ve been building marketing analytics, ML, and experimentation programs &mdash;
+			leading teams at <strong>Discover</strong> and <strong>Grainger</strong>, shipping models that touch acquisition,
+			retention, attribution, and CRO. I love the part of the job where messy data turns into a decision someone can
+			actually act on.
+		</p>
+		<p>
+			Right now I&rsquo;m in the middle of a career transition. I took a severance package, kept the mornings for my kids,
+			and turned the rest into a kind of personal R&amp;D sprint &mdash; deepening the parts of the ML stack I never owned at work,
+			shipping side projects, and writing about it as I go.
+		</p>
+	</section>
+
+	<section class="home-section">
+		<h2 class="home-h2">What I&rsquo;m up to</h2>
+		<ul class="now-list">
+			<li>
+				<strong>Finished ML Zoomcamp.</strong> Took DataTalks.Club&rsquo;s 4-month ML engineering track end to end &mdash;
+				notebooks all the way to FastAPI / Docker / AWS Lambda. My capstone is a Lending Club loan-grade
+				classifier deployed live as a containerized API.
+			</li>
+			<li>
+				<strong>Building <a href="https://the-offer-lab.vercel.app" rel="noopener noreferrer">The Offer Lab</a>.</strong>
+				A lightweight hub for interview prep and application tracking I vibe-coded for myself, then opened up
+				to other folks in the job-search grind. Next.js + Prisma + Postgres, shipping new features based on real feedback.
+			</li>
+			<li>
+				<strong>Writing in public.</strong> Posting what I learn &mdash; both the wins and the &ldquo;huh, that&rsquo;s
+				not how I thought it worked&rdquo; moments &mdash; on <a href="/writing">the writing page</a>.
+			</li>
+		</ul>
+	</section>
+
+	{
+		recentPosts.length > 0 && (
+			<section class="home-section">
+				<h2 class="home-h2">Recent writing</h2>
+				<ul class="post-list">
+					{recentPosts.map((post) => (
+						<li>
+							<a class="post-card" href={`/writing/${post.id}`}>
+								<div class="post-meta">
+									<time datetime={post.data.pubDate.toISOString()}>
+										{post.data.pubDate.toLocaleDateString('en-US', {
+											year: 'numeric',
+											month: 'long',
+											day: 'numeric',
+										})}
+									</time>
+								</div>
+								<h3>{post.data.title}</h3>
+								<p>{post.data.description}</p>
+							</a>
+						</li>
+					))}
+				</ul>
+			</section>
+		)
+	}
+
+	<section class="home-section">
+		<h2 class="home-h2">Find me</h2>
+		<div class="cta-row">
+			<a class="button" href="/projects">See projects</a>
+			<a class="button button-secondary" href="/writing">Read writing</a>
+			<a class="button button-secondary" href="/resume">View resume</a>
+			<a class="button button-secondary" href="https://github.com/jqchen24-new" rel="noopener noreferrer">GitHub</a>
+			<a class="button button-secondary" href="https://www.linkedin.com/in/Junqichen/" rel="noopener noreferrer">LinkedIn</a>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.home-section {
+		margin-top: 1.75rem;
+	}
+
+	.home-section:first-of-type {
+		margin-top: 0;
+	}
+
+	.home-h2 {
+		font-size: 1rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--color-muted);
+		margin: 0 0 0.75rem;
+	}
+
+	.now-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.85rem;
+	}
+
+	.now-list li {
+		padding-left: 1rem;
+		border-left: 2px solid var(--color-border);
+	}
+
+	.post-card h3 {
+		margin: 0 0 0.35rem;
+		font-size: 1.0625rem;
+		letter-spacing: -0.01em;
+	}
+</style>

@@ -1,0 +1,106 @@
+# Root key must be `resume` — it becomes the collection entry id for `getEntry('resume', 'resume')`.
+# Synced to public/resume.pdf
+resume:
+  name: Junqi (Jack) Chen
+  title: Data Science Leader · Marketing Analytics, ML, & Experimentation
+  contact:
+    email: jqchen24@gmail.com
+    location: Deerfield, IL · 484-634-6986
+    links:
+      - label: LinkedIn
+        url: https://www.linkedin.com/in/Junqichen/
+      - label: GitHub
+        url: https://github.com/jqchen24-new
+  summary: |
+    Strategic and results-driven Data Science Leader with extensive experience leading high-performing analytics teams
+    to drive measurable business impact. Proven track record in delivering actionable insights and machine learning
+    solutions that drive revenue growth, customer retention, optimized marketing performance, and enhanced customer
+    experience. Expert in building and mentoring data science teams, establishing robust decision frameworks, and
+    operationalizing ML models in production. Demonstrated success in Conversion Rate Optimization, predictive modeling,
+    Multi Touch Attribution, and experimentation design, translating complex data into strategic business recommendations.
+  experience:
+    - company: Discover Financial Services
+      role: Senior Manager, Deposits Marketing Analytics
+      location: Riverwoods, IL
+      start: Jan 2023
+      end: Present
+      highlights:
+        - Lead a globally dispersed team of 4 data scientists supporting acquisition channels, including Direct Marketing ($30MM budget) and Conversion Rate Optimization (CRO); recruit, train, mentor, and promote data science professionals.
+        - Built and deployed XGBoost targeting models for Savings and CD acquisition — feature engineering through production deployment on Snowflake/AWS — driving $70MM in incremental deposits and 10% efficiency gains; implemented monitoring pipelines for proactive model performance tracking.
+        - Led incentive offer experimentation (design–analysis–rollout), achieving up to 200% lift on response and 60% reduction in cost per dollar while expanding learnings for future personalization.
+        - Spearheaded development and alignment of CRO measurement and decisioning framework, enabling faster decisions to optimize the online customer experience and driving over $200MM incremental deposits annually.
+        - Adopted Bayesian test measurement methodology, cutting test duration by up to 40% while maintaining guardrails on risk and statistical rigor.
+        - Lead upkeep of an in-house multi-touch attribution workflow; steer monthly reforecasting of growth metrics with Marketing, Finance, and leadership to inform investment decisions.
+    - company: Discover Financial Services
+      role: Manager, Card Portfolio Modeling
+      location: Riverwoods, IL
+      start: Sep 2020
+      end: Dec 2022
+      highlights:
+        - Developed and implemented credit card attrition models (XGBoost) for retention initiatives and models for Balance Transfer price sensitivity using historical pricing tests.
+        - Spearheaded uplift modeling POC for Balance Transfer, benchmarking Meta Learners, Uplift Trees, and Outcome Transformation vs. the existing response model; best model showed 10%+ lift.
+        - Developed credit risk models for the card portfolio using XGBoost, informing credit line and retention decisions across 40MM cardholders.
+        - Established monitoring frameworks and led quarterly business reviews for sustained model health and proactive retraining.
+    - company: Discover Financial Services
+      role: Principal Data Scientist, Card Acquisition Analytics
+      location: Riverwoods, IL
+      start: Sep 2019
+      end: Sep 2020
+      highlights:
+        - Analyzed Google DCM impression data to profile prospects across publishers and developed a pioneering view of traffic flow among publishers.
+        - Built a Markov Chain attribution model; results plus a DMA test informed CPA negotiation with a key publisher ($200K annual savings).
+        - Identified and assisted remediation of an internal product billing issue that caused over $1MM overpayment.
+        - Managed funnel performance tracking for the Affiliates channel and analyzed how first-transaction behavior evolved during the pandemic.
+    - company: W.W. Grainger
+      role: Senior Data Scientist
+      location: Lake Forest, IL
+      start: Jun 2015
+      end: Sep 2019
+      highlights:
+        - Delivered a comprehensive view of drivers of seller performance via regression; proposed actions to improve seller performance based on model results.
+        - Trained ML models (Random Forest, XGBoost, etc.) to predict customer risk; outputs leveraged by Sales for retention.
+        - Pioneered seller effectiveness modeling combining NLP-derived Salesforce activity with demographic and performance data for coaching and training strategy.
+        - Set up automated audience selection in R Server on Hadoop for DM campaigns; reduced modeling turnaround ~30% while improving prediction accuracy.
+        - Measured ROI of Marketing and Sales investments using A/B testing and observational methods (PSM, DiD, etc.).
+  education:
+    - school: Lehigh University
+      degree: MS Industrial and Systems Engineering
+      details: Bethlehem, PA
+    - school: Nanjing University of Aeronautics and Astronautics
+      degree: BS Industrial Engineering
+      details: Nanjing, China
+  skills:
+    - category: Practice areas
+      items:
+        - Team leadership & mentorship
+        - Marketing analytics
+        - Revenue forecasting
+        - Conversion rate optimization (CRO)
+        - Multi-touch attribution (MTA)
+        - Experimentation — Bayesian measurement & A/B testing
+        - Causal inference & uplift modeling
+        - Machine learning — modeling, deployment & monitoring
+    - category: Languages & data platforms
+      items:
+        - Python
+        - SQL
+        - SAS
+        - R
+        - Spark
+        - Git
+        - Snowflake
+        - Tableau
+        - Looker
+        - Airflow
+        - Cursor
+        - Docker
+        - FastAPI
+    - category: ML frameworks & cloud
+      items:
+        - scikit-learn
+        - XGBoost
+        - TensorFlow / Keras
+        - PyTorch
+        - H2O
+        - SageMaker
+        - Lambda

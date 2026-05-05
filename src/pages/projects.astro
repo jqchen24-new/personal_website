@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const entry = await getEntry('projects', 'projects');
+if (!entry) {
+	throw new Error('Add src/data/projects.yaml');
+}
+const projects = entry.data;
+---
+
+<BaseLayout title="Projects" description="Side projects, code, and things I've shipped." navCurrent="projects">
+	<h1 class="page-title">Projects</h1>
+	<p class="lede">
+		A few things I&rsquo;ve built outside of work &mdash; mostly to learn end-to-end ML engineering and to scratch
+		my own itches during the job search. More on <a href="https://github.com/jqchen24-new" rel="noopener noreferrer">GitHub</a>.
+	</p>
+
+	<ul class="project-list">
+		{
+			projects.map((p) => (
+				<li class="project-card">
+					<div class="project-head">
+						<h2>{p.name}</h2>
+						{p.status && <span class="project-status">{p.status}</span>}
+					</div>
+					{p.tagline && <p class="project-tagline">{p.tagline}</p>}
+					<p class="project-desc">{p.description}</p>
+					{p.stack && p.stack.length > 0 && (
+						<ul class="project-stack" aria-label="Stack">
+							{p.stack.map((s) => (
+								<li>{s}</li>
+							))}
+						</ul>
+					)}
+					{p.links && p.links.length > 0 && (
+						<p class="project-links">
+							{p.links.map((link, i) => (
+								<>
+									{i > 0 && <span class="project-link-sep" aria-hidden="true"> · </span>}
+									<a href={link.url} rel="noopener noreferrer">
+										{link.label}
+									</a>
+								</>
+							))}
+						</p>
+					)}
+				</li>
+			))
+		}
+	</ul>
+</BaseLayout>
+
+<style>
+	.project-list {
+		list-style: none;
+		padding: 0;
+		margin: 1.5rem 0 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.project-card {
+		padding: 1.25rem;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius);
+		box-shadow: var(--shadow);
+	}
+
+	.project-head {
+		display: flex;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+	}
+
+	.project-card h2 {
+		margin: 0;
+		font-size: 1.125rem;
+		letter-spacing: -0.02em;
+	}
+
+	.project-status {
+		font-size: 0.75rem;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: var(--color-accent);
+		background: rgb(13 148 136 / 8%);
+		border: 1px solid rgb(13 148 136 / 25%);
+		border-radius: 999px;
+		padding: 0.15rem 0.6rem;
+		white-space: nowrap;
+	}
+
+	.project-tagline {
+		margin: 0.35rem 0 0.75rem;
+		color: var(--color-muted);
+		font-size: 0.9375rem;
+	}
+
+	.project-desc {
+		margin: 0;
+		font-size: 0.9375rem;
+		line-height: 1.6;
+	}
+
+	.project-stack {
+		list-style: none;
+		padding: 0;
+		margin: 0.85rem 0 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+
+	.project-stack li {
+		font-size: 0.75rem;
+		font-family: var(--font-mono);
+		color: var(--color-muted);
+		background: rgb(231 229 228 / 60%);
+		border: 1px solid var(--color-border);
+		border-radius: 4px;
+		padding: 0.1rem 0.45rem;
+	}
+
+	.project-links {
+		margin: 0.85rem 0 0;
+		font-size: 0.9375rem;
+	}
+
+	.project-link-sep {
+		color: var(--color-muted);
+	}
+</style>

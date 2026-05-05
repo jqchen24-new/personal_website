@@ -1,0 +1,80 @@
+# Side projects, in roughly reverse-chronological order.
+# Add new projects to the top.
+projects:
+  - name: The Offer Lab
+    tagline: A lightweight hub for interview prep + application tracking, built during my own job search.
+    description: |
+      I vibe-coded The Offer Lab when I noticed how fast the open hours of a career transition can disappear.
+      It turns the day into doable chunks: suggested study sessions based on what you've practiced least, a tag-based
+      progress tracker, an SQL practice module with AI feedback, and a clean place to log applications without the
+      spreadsheet chaos. Shipping new features in the open based on real feedback from job seekers.
+    stack:
+      - Next.js 16
+      - TypeScript
+      - Tailwind CSS
+      - Prisma
+      - PostgreSQL
+      - NextAuth
+      - Recharts
+    status: Live & shipping
+    links:
+      - label: Live app
+        url: https://the-offer-lab.vercel.app
+      - label: GitHub
+        url: https://github.com/jqchen24-new/the_offer_lab
+      - label: Launch post
+        url: /writing/building-through-transition
+
+  - name: Lending Club Loan Grade Prediction
+    tagline: ML Zoomcamp capstone — model + production deployment, end to end.
+    description: |
+      A multi-class classifier that predicts a loan's risk grade (A–G) from borrower attributes available at
+      origination — the same kind of risk-tiering decision used in consumer credit underwriting. I trained Random
+      Forest, XGBoost, and a PyTorch MLP on ~500K records, then wrapped the best model in a FastAPI service,
+      containerized it with Docker, and deployed the image to Railway. Best model hit 0.95 weighted F1 on a 100K-row
+      test set. The training was the easy part — the deployment is where I actually learned things.
+    stack:
+      - Python
+      - scikit-learn
+      - XGBoost
+      - PyTorch
+      - FastAPI
+      - Docker
+      - Railway
+    status: Deployed
+    links:
+      - label: GitHub
+        url: https://github.com/jqchen24-new/lending-club-loan-grade-prediction
+      - label: Writeup
+        url: /writing/notebook-to-production
+
+  - name: ML Zoomcamp coursework
+    tagline: Homework + projects from DataTalks.Club's free 4-month ML engineering bootcamp.
+    description: |
+      Notebooks and code from the foundations track (linear/logistic regression, trees, ensembles, neural nets) and
+      the deployment track (FastAPI, Docker, AWS Lambda, Kubernetes). A good record of the bootcamp end-to-end if
+      you're considering it yourself.
+    stack:
+      - Python
+      - scikit-learn
+      - XGBoost
+      - TensorFlow
+      - PyTorch
+      - FastAPI
+    status: Completed
+    links:
+      - label: GitHub
+        url: https://github.com/jqchen24-new/ml-zoomcamp
+
+  - name: Family Expense Tracker
+    tagline: A tiny web app to link credit-card accounts and keep an eye on household spending.
+    description: |
+      A weekend project for our own family budget — a small web app where you connect your card accounts and see
+      expenses grouped by category over time. Mostly an excuse to learn a bit more frontend by scratching a real itch.
+    stack:
+      - TypeScript
+      - Next.js
+    status: Hobby
+    links:
+      - label: GitHub
+        url: https://github.com/jqchen24-new/family_expense_tracker

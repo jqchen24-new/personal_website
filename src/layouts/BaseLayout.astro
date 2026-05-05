@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+import { site } from '../site';
+
+type NavId = 'home' | 'writing' | 'projects' | 'resume';
+
+interface Props {
+	title: string;
+	description?: string;
+	navCurrent?: NavId;
+}
+
+const { title, description, navCurrent = 'home' } = Astro.props;
+const fullTitle = title === site.title ? title : `${title} · ${site.title}`;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		{description && <meta name="description" content={description} />}
+		<title>{fullTitle}</title>
+	</head>
+	<body>
+		<div class="layout">
+			<header class="site-header">
+				<div class="site-header-inner">
+					<p class="site-title">
+						<a href="/">{site.title}</a>
+					</p>
+					<nav class="site-nav" aria-label="Main">
+						<a href="/" data-current={navCurrent === 'home' ? 'true' : undefined}>Home</a>
+						<a href="/writing" data-current={navCurrent === 'writing' ? 'true' : undefined}
+							>Writing</a
+						>
+						<a href="/projects" data-current={navCurrent === 'projects' ? 'true' : undefined}
+							>Projects</a
+						>
+						<a href="/resume" data-current={navCurrent === 'resume' ? 'true' : undefined}
+							>Resume</a
+						>
+					</nav>
+				</div>
+			</header>
+			<main class="layout-main">
+				<slot />
+			</main>
+			<footer class="site-footer">
+				<slot name="footer">
+					<span>Built with Astro</span>
+				</slot>
+			</footer>
+		</div>
+	</body>
+</html>
