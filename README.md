@@ -43,6 +43,17 @@ Build output is static (`dist/`). Connect the repo to any static host:
 
 Environment variables are optional for this template; add them in the host dashboard if you introduce analytics or forms later.
 
+## Comments (Disqus)
+
+This site supports Disqus comments under each article.
+
+1. Create a Disqus site and get your **shortname**.
+2. Set an environment variable:
+   - **Local**: `PUBLIC_DISQUS_SHORTNAME=<your-shortname>`
+   - **Vercel**: Project → Settings → Environment Variables → add `PUBLIC_DISQUS_SHORTNAME`
+
+If `PUBLIC_DISQUS_SHORTNAME` is not set, the comments section will not render.
+
 ## Project layout
 
 ```text

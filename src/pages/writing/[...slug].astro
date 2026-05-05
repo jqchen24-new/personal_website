@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
+import Disqus from '../../components/Disqus.astro';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('articles');
@@ -58,4 +59,6 @@ const { Content } = await render(post);
 			)
 		}
 	</article>
+
+	<Disqus identifier={`writing:${post.id}`} title={post.data.title} />
 </BaseLayout>
