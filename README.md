@@ -43,16 +43,27 @@ Build output is static (`dist/`). Connect the repo to any static host:
 
 Environment variables are optional for this template; add them in the host dashboard if you introduce analytics or forms later.
 
-## Comments (Disqus)
+## Comments (Remark42, self-hosted)
 
-This site supports Disqus comments under each article.
+This site supports comments under each article via **Remark42** (self-hosted). This can be configured to allow
+anonymous comments (no GitHub login), depending on your Remark42 setup.
 
-1. Create a Disqus site and get your **shortname**.
-2. Set an environment variable:
-   - **Local**: `PUBLIC_DISQUS_SHORTNAME=<your-shortname>`
-   - **Vercel**: Project → Settings → Environment Variables → add `PUBLIC_DISQUS_SHORTNAME`
+Set these environment variables:
 
-If `PUBLIC_DISQUS_SHORTNAME` is not set, the comments section will not render.
+- `PUBLIC_REMARK42_HOST` — your Remark42 base URL (e.g. `https://comments.jackchen24.com`)
+- `PUBLIC_REMARK42_SITE_ID` — a short site identifier (e.g. `jackchen24`)
+
+Local example:
+
+```sh
+PUBLIC_REMARK42_HOST=https://comments.example.com \
+PUBLIC_REMARK42_SITE_ID=jackchen24 \
+npm run dev
+```
+
+Vercel: Project → Settings → Environment Variables → add both `PUBLIC_REMARK42_HOST` and `PUBLIC_REMARK42_SITE_ID`.
+
+If these variables are not set, the comments section will not render.
 
 ## Project layout
 

@@ -1,0 +1,55 @@
+---
+interface Props {
+	/** Must be stable per page (e.g. slug). */
+	identifier: string;
+	/** Optional label used by Remark42; falls back to identifier. */
+	title?: string;
+}
+
+const { identifier, title } = Astro.props;
+
+const host = import.meta.env.PUBLIC_REMARK42_HOST;
+const siteId = import.meta.env.PUBLIC_REMARK42_SITE_ID;
+
+if (!host || !siteId) {
+	// Not configured; render nothing.
+	return null;
+}
+
+const normalizedHost = host.replace(/\/$/, '');
+const pageUrl = Astro.url.href;
+---
+
+<section aria-label="Comments">
+	<div id="remark42"></div>
+</section>
+
+<script is:inline>
+	const remark42Host = {JSON.stringify(normalizedHost)};
+	const remark42SiteId = {JSON.stringify(siteId)};
+	const remark42PageUrl = {JSON.stringify(pageUrl)};
+	const remark42Identifier = {JSON.stringify(identifier)};
+	const remark42Title = {JSON.stringify(title ?? identifier)};
+
+	// Configure Remark42 before loading the embed script.
+	window.remark_config = {
+		host: remark42Host,
+		site_id: remark42SiteId,
+		url: remark42PageUrl,
+		page_title: remark42Title,
+		components: ['embed'],
+	};
+
+	(function () {
+		if (document.getElementById('remark42-embed-script')) return;
+		const s = document.createElement('script');
+		s.id = 'remark42-embed-script';
+		s.defer = true;
+		s.src = remark42Host + '/web/embed.js';
+		document.head.appendChild(s);
+	})();
+</script>
+
+<noscript>
+	Please enable JavaScript to view the comments.
+</noscript>
