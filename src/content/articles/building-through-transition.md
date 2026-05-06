@@ -6,7 +6,7 @@ pubDate: 2026-02-27
 linkedinUrl: https://www.linkedin.com/pulse/building-through-transition-offer-lab-junqi-chen-crjfc/
 ---
 
-![Offer Lab dashboard](/public/images/posts/dashboard.png)
+![Offer Lab dashboard](/images/posts/dashboard.png)
 
 I’m in a career transition right now—I chose to take a severance package and leave my company.
 
@@ -32,9 +32,9 @@ Here’s what it helps with:
 
 ✅ **See what’s actually moving the needle**: time-by-tag breakdown so you can spot gaps and rebalance
 
-![Offer Lab progress tracking](/public/images/posts/progress_tracking.png)
+![Offer Lab progress tracking](/images/posts/progress_tracking.png)
 
-![Offer Lab application tracking](/public/images/posts/application_tracking.png)
+![Offer Lab application tracking](/images/posts/application_tracking.png)
 
 If you’re in the job search grind and this kind of structure would help, I’d love for you to try it and share feedback. And if you’re navigating a layoff or career transition right now: I’m genuinely rooting for you. You’re not alone.
 

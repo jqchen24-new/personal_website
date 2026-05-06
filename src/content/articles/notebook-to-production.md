@@ -5,7 +5,7 @@ pubDate: 2026-04-16
 linkedinUrl: https://www.linkedin.com/pulse/from-notebook-production-what-ml-zoomcamp-actually-taught-junqi-chen-seu2c/
 ---
 
-![ML Zoomcamp](/public/images/posts/ml-zoomcamp-2.png)
+![ML Zoomcamp](/images/posts/ml-zoomcamp-2.png)
 
 Just completed my ML Zoomcamp capstone — and I learned more debugging production issues than I did training models.
 
@@ -81,4 +81,4 @@ Huge thanks to Alexey Grigorev and the DataTalks.Club team for building somethin
 
 #MachineLearning #DataScience #PyTorch #MLOps #Docker #FastAPI #MLZoomcamp #DataTalksClub #LearningInPublic #containerization
 
-![ML Zoomcamp](/public/images/posts/ml-zoomcamp.png)
+![ML Zoomcamp](/images/posts/ml-zoomcamp.png)

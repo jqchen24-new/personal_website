@@ -5,7 +5,7 @@ pubDate: 2026-03-10
 linkedinUrl: https://www.linkedin.com/pulse/you-asked-i-built-heres-whats-new-offer-lab-junqi-chen-igcuc/
 ---
 
-![Offer Lab dashboard](/public/images/posts/SQL_practice_1.png)
+![Offer Lab dashboard](/images/posts/SQL_practice_1.png)
 
 When I launched The Offer Lab a week ago, I wasn't sure how people would respond.
 
@@ -35,8 +35,8 @@ And if you've been using it already, I'd love to hear what's working for you and
 
 #TheOfferLab #BuildInPublic #JobSearch #InterviewPrep #SQL #DataJobs #CareerTransition
 
-![Offer Lab dashboard](/public/images/posts/SQL_practice_2.png)
+![Offer Lab dashboard](/images/posts/SQL_practice_2.png)
 
-![Offer Lab dashboard](/public/images/posts/smarter_progress_tracking.png)
+![Offer Lab dashboard](/images/posts/smarter_progress_tracking.png)
 
 

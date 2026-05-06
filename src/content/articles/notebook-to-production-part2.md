@@ -6,7 +6,7 @@ linkedinUrl: https://www.linkedin.com/pulse/notebook-production-part-2-my-ml-cap
 
 ---
 
-![ML Zoomcamp](/public/images/posts/streamlit_1.png)
+![ML Zoomcamp](/images/posts/streamlit_1.png)
 
 A few weeks ago I wrote about taking my ML Zoomcamp capstone from notebook to something deployable (original post). What stuck with me then was how messy the last mile feels compared with training a model. 
 
@@ -20,6 +20,6 @@ I added a Streamlit front door so the work isn’t hidden behind curl examples. 
 
 Then deployment reminded me why engineers earn their keep: two Railway services, a mis-set base URL that produces baffling 404s, HTTPS redirects that look like “mystery errors,” Docker builds that fail on dependency graphs you never noticed locally, and an explanation path that only works if the container actually carries the right artifacts.
 
-![ML Zoomcamp](/public/images/posts/streamlit_2.png)
+![ML Zoomcamp](/images/posts/streamlit_2.png)
 
-![ML Zoomcamp](/public/images/posts/streamlit_3.png)
+![ML Zoomcamp](/images/posts/streamlit_3.png)
