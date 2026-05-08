@@ -9,7 +9,18 @@ const recentPosts = (await getCollection('articles'))
 ---
 
 <BaseLayout title={site.title} description={site.tagline} navCurrent="home">
-	<h1 class="lede">Hi, I&rsquo;m Jack &mdash; a data science leader in financial services, currently figuring out what&rsquo;s next.</h1>
+	<header class="hero">
+		<img
+			class="hero-photo"
+			src="/images/headshot.png"
+			width="640"
+			height="640"
+			alt="Portrait photo"
+			loading="eager"
+			decoding="async"
+		/>
+		<h1 class="lede">Hi, I&rsquo;m Jack &mdash; a data science leader in financial services, currently figuring out what&rsquo;s next.</h1>
+	</header>
 
 	<section class="home-section">
 		<p>
@@ -85,6 +96,36 @@ const recentPosts = (await getCollection('articles'))
 </BaseLayout>
 
 <style>
+	.hero {
+		display: grid;
+		grid-template-columns: 96px 1fr;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 1.25rem;
+	}
+
+	.hero-photo {
+		width: 96px;
+		height: 96px;
+		border-radius: 999px;
+		object-fit: cover;
+		border: 1px solid var(--color-border);
+		box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+		background: var(--color-bg);
+	}
+
+	@media (max-width: 520px) {
+		.hero {
+			grid-template-columns: 1fr;
+			justify-items: start;
+		}
+
+		.hero-photo {
+			width: 84px;
+			height: 84px;
+		}
+	}
+
 	.home-section {
 		margin-top: 1.75rem;
 	}

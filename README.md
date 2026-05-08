@@ -5,6 +5,7 @@ Static site built with [Astro](https://astro.build/): home, a **Writing** sectio
 ## Local development
 
 ```sh
+nvm use # uses .nvmrc (Node 22)
 npm install
 npm run dev
 ```
