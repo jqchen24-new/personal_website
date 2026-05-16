@@ -4,22 +4,12 @@ projects:
   - name: Story Theater
     tagline: Read-aloud, choose-your-own-adventure picture books for kids — built because my daughter chose Netflix over books.
     description: |
-      My son will happily read his Kindle past midnight. My daughter? YouTube Kids and Netflix, whenever she gets a
-      break from piano. Banning screens isn't realistic, so I went the other way — making reading feel a little
-      more like the things she already loves: characters, choices, voices, pictures.
-
-      Story Theater is interactive, read-aloud picture-book adventures for kids around 7–9. Pick one of 16 themes
-      (dinosaurs, pirates, time travel, superheroes, ocean…) and a hero, then branch through six scenes with two
-      choices per beat. Claude generates each scene as structured JSON so the cast and continuity stay consistent
-      across branches. Gemini and OpenAI handle the narration; Gemini's image API draws every scene, and the hero's
-      first picture is passed forward as a reference so they stay recognizable across pages. The active sentence
-      lights up while it's read aloud.
-
-      A handful of AI storybook tools already exist, but most generate a fixed book in one shot. I wanted something
-      that branches at every page and feels built for a 7-year-old to use — not for a parent to author for her.
-      It's not meant to replace real books — bedtime is still a paperback. Story Theater is for the slot when the
-      kids are already asking for screen time, to make that a little more like reading and a little less like
-      passive scrolling.
+      My daughter would rather watch Netflix than read; banning screens wasn't the answer. Story Theater is
+      read-aloud, choose-your-own-adventure picture books for kids 7–9 — 16 themes, six branching scenes, two
+      choices per beat, with each sentence highlighted as it's read. Claude writes structured JSON per scene;
+      Gemini and OpenAI narrate; Gemini illustrates with the hero's look carried forward across pages. Most AI
+      storybooks are fixed; this branches every page for kids to use themselves — not to replace bedtime paperbacks,
+      but to make the screen-time slot feel a little more like reading.
     stack:
       - React 19
       - Vite
