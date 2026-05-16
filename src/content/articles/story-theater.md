@@ -1,6 +1,7 @@
 ---
 title: 'My daughter chose Netflix over books — so I built this app'
 pubDate: 2026-05-15
+description: 'An app I made for my daughter who is more into YouTube than books'
 linkedinUrl: https://www.linkedin.com/pulse/my-daughter-chose-netflix-over-books-so-i-built-app-junqi-chen-karcc/
 ---
 
