@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { site } from '../site';
+import Analytics from '@vercel/analytics/astro';
 
 type NavId = 'home' | 'writing' | 'projects' | 'resume';
 
@@ -24,6 +25,25 @@ const fullTitle = title === site.title ? title : `${title} · ${site.title}`;
 		<meta name="generator" content={Astro.generator} />
 		{description && <meta name="description" content={description} />}
 		<title>{fullTitle}</title>
+		<Analytics />
+		{
+			import.meta.env.PROD && (
+				<>
+					<script
+						async
+						src={`https://www.googletagmanager.com/gtag/js?id=${site.gaMeasurementId}`}
+					/>
+					<script is:inline define:vars={{ gaId: site.gaMeasurementId }}>
+						window.dataLayer = window.dataLayer || [];
+						function gtag() {
+							dataLayer.push(arguments);
+						}
+						gtag('js', new Date());
+						gtag('config', gaId);
+					</script>
+				</>
+			)
+		}
 	</head>
 	<body>
 		<div class="layout">

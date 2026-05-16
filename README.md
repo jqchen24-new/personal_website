@@ -42,7 +42,19 @@ Build output is static (`dist/`). Connect the repo to any static host:
 - **[Netlify](https://www.netlify.com/)** — same build command and publish directory `dist`.
 - **[Cloudflare Pages](https://pages.cloudflare.com/)** — build `npm run build`, output `dist`.
 
-Environment variables are optional for this template; add them in the host dashboard if you introduce analytics or forms later.
+### Web analytics (Vercel)
+
+This site uses [Vercel Web Analytics](https://vercel.com/docs/analytics) via `@vercel/analytics` in `BaseLayout.astro`.
+
+After deploying:
+
+1. Open your project in the [Vercel dashboard](https://vercel.com/dashboard).
+2. Go to **Analytics** in the sidebar and click **Enable**.
+3. Redeploy if needed; page views appear after traffic hits production.
+
+No environment variables are required. Analytics only records on Vercel production deployments (not local `npm run dev`).
+
+Other environment variables are optional; add them in the host dashboard if you introduce forms or other integrations later.
 
 ## Comments (Remark42, self-hosted)
 
