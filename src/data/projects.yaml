@@ -1,6 +1,31 @@
 # Side projects, in roughly reverse-chronological order.
 # Add new projects to the top.
 projects:
+  - name: Story Theater
+    tagline: Read-aloud, choose-your-own-adventure picture books for kids — vibe-coded for my own.
+    description: |
+      A bedtime experiment that got out of hand. My kids are right around the age (~7–9) where they want to be the
+      hero of the story, so I built a little web app where they pick a genre and a hero, then branch through scenes
+      with two choices per beat — up to 16 scenes long. Claude generates each scene as structured JSON so the cast,
+      choices, and continuity stay coherent. Neural TTS reads each page aloud with sentence-level highlighting, and
+      Gemini paints an illustration per scene — keeping the hero recognizable across pages via reference images.
+      Backtracking through earlier beats hits a browser cache so it actually feels snappy. Mostly I learned how
+      much glue work it takes to make multi-modal AI feel like a picture book instead of a tech demo.
+    stack:
+      - React 19
+      - Vite 8
+      - Tailwind CSS 4
+      - Anthropic SDK (Claude)
+      - Gemini TTS / Image
+      - OpenAI TTS
+      - Vercel
+    status: Live
+    links:
+      - label: Live app
+        url: https://story-theater-for-kids.vercel.app
+      - label: GitHub
+        url: https://github.com/jqchen24-new/story-theater
+
   - name: The Offer Lab
     tagline: A lightweight hub for interview prep + application tracking, built during my own job search.
     description: |
